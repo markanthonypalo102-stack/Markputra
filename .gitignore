@@ -1,0 +1,11 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+.DS_Store
+*.iml
+*.db
+*.db-shm
+*.db-wal
+__pycache__/
+*.py[cod]
