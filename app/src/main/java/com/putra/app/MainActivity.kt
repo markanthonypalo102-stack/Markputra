@@ -159,7 +159,7 @@ class MainActivity : ComponentActivity() {
         rainView = rain
         root.addView(rain, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
 
-        val scroll = ScrollView(this).apply { isFillViewport = true; clipToPadding = false }
+        val scroll = ScrollView(this).apply { setFillViewport(true); clipToPadding = false }
         root.addView(scroll, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
         val card = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -171,7 +171,7 @@ class MainActivity : ComponentActivity() {
         loginCard = card
         val wrapper = FrameLayout(this)
         wrapper.addView(card, FrameLayout.LayoutParams(dp(340), ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER))
-        scroll.addView(wrapper, ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        scroll.addView(wrapper, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
         card.addView(label("◉", 30f, GREEN, true).apply { gravity = Gravity.CENTER })
         card.addView(label("PUTRA", 25f, TEXT, true).apply { gravity = Gravity.CENTER; letterSpacing = 0.08f })
@@ -235,7 +235,7 @@ class MainActivity : ComponentActivity() {
     private fun buildAppScreen() {
         val base = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setBackgroundColor(BG) }
         appRoot = base
-        val scroll = ScrollView(this).apply { fillViewport = true }
+        val scroll = ScrollView(this).apply { setFillViewport(true) }
         base.addView(scroll, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
         val content = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(18), dp(16), dp(20)) }
         scroll.addView(content)
